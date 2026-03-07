@@ -1,0 +1,4 @@
+{
+  "title": "Read, summarize, and generate prioritized recommendations from website audit report",
+  "job": "Read the file `data/website-audit.md` from the repository. Summarize the full contents of the report, then provide a detailed set of recommendations based on the findings — organized by priority (high, medium, low). Save the output as `data/website-audit-recommendations.md` and include both the summary and the recommendations in the committed file."
+}

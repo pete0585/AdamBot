@@ -1,6 +1,7 @@
 # thestrategicveteran.com -- Webflow Site Map
 
 **Generated:** 2026-03-07
+**Last Updated:** 2026-03-07
 **Platform:** Webflow
 **Site ID:** 66878d6a1082f3dca2c24ae6
 **Domain:** thestrategicveteran.com
@@ -10,44 +11,78 @@
 
 ## API Token Status
 
-The current Webflow API token (`$WEBFLOW_API_TOKEN`) is an OAuth token with **limited scopes**. It currently only has webhook access. The following scopes are **missing** and need to be added in the Webflow dashboard:
+The current Webflow API token (`$WEBFLOW_API_TOKEN`) is a site-level token (ws-prefix) with **limited scopes**. It currently only has webhook access. The following scopes are **missing** and need to be added in the Webflow dashboard:
 
 | Scope | Required For |
 |-------|-------------|
 | `sites:read` | site-info.sh |
-| `pages:read` | list-pages.sh |
+| `sites:write` | publish-site.sh |
+| `pages:read` | list-pages.sh, get-page-dom.sh |
+| `pages:write` | update-page-dom.sh, update-page-settings.sh |
 | `cms:read` | list-collections.sh, list-collection-items.sh, get-collection-item.sh |
 | `cms:write` | create-collection-item.sh, update-collection-item.sh |
-| `sites:write` | publish-site.sh (POST) |
 
 To fix: Go to Webflow Dashboard > Site Settings > Apps & Integrations > Edit the API token and add the missing scopes. Or generate a new Site API Token (legacy tokens have all scopes by default for their site).
 
 ---
 
-## Pages (8 total)
+## Known Page IDs (extracted from live site DOM)
 
-### 1. Homepage (`/`)
-- **Title:** "The Strategic Veteran | Expert Support for Military to Civilian Transition"
-- **Meta Description:** None set
-- **Content:**
-  - Hero section: "UnF*ck Your Transition!" headline
-  - Founder bio: Adam Peters, 13-year military background
-  - Podcast section with 3 recent episodes (David Zallo, Rich Spalla, Rex Enriquez)
-  - Newsletter signup CTA
-  - Marquis Who's Who 2025 badge
-  - Footer with social links (YouTube, X, Instagram, Facebook, LinkedIn)
-- **Navigation:** Podcast, Newsletter, Shop, About, Contact
-- **CTAs:** "Listen Now", "Subscribe for Free", "View All Episodes"
-- **Notes:** Shop link is a placeholder (`#`). Copyright says 2024. Design credit to "The Brand Chef."
+| Page | Slug | Page ID |
+|------|------|---------|
+| Homepage | `/` | `66878d6a1082f3dca2c24aec` |
+| About | `/about` | `668933461b3a6c3f7fdfa5be` |
+| Podcast | `/podcast` | `66894fb8a153c1d444b31357` |
+| Newsletter | `/newsletter` | `66894c1dfc02dab6c272eb7f` |
+| Contact | `/contact` | `668957fd0f53689e469c5cfd` |
 
-### 2. About (`/about`)
-- **Title:** "The Strategic Veteran - Bridging Military and Civilian Worlds"
-- **Meta Description:** None set
-- **Content:**
-  - Mission statement: "We're here for you. Veterans of all walks of life."
-  - Brief founder background (Adam Peters, 13 years of service)
-  - Mentions podcast and newsletter as core offerings
-- **Notes:** Extremely thin. Only a few sentences. No personal transformation story, no combat details, no current ventures.
+Full page ID reference: `data/webflow-pages/page-ids.json`
+
+---
+
+## Pending Content Updates
+
+Pre-built content files exist in `data/webflow-pages/` for all pages below. These files are ready to deploy once the API token scopes are updated and new pages are created in the Webflow Designer.
+
+### Content Removals (ALL pages)
+- Remove all references to **The Stronghold** community
+- Remove all references to **Alset Technologies**
+- Remove all references to **CAIO** (Chief AI Officer) title
+
+### Deployment Script
+Run `data/webflow-pages/deploy.sh` after updating token scopes and creating new pages.
+
+---
+
+## Pages (8 existing + 8 new = 16 total)
+
+### 1. Homepage (`/`) -- UPDATE PENDING
+- **Page ID:** `66878d6a1082f3dca2c24aec`
+- **Current Title:** "The Strategic Veteran | Expert Support for Military to Civilian Transition"
+- **New Title:** "The Strategic Veteran | UnF*ck Your Transition | 158+ Episodes"
+- **Content File:** `data/webflow-pages/homepage.html`
+- **SEO File:** `data/webflow-pages/seo/homepage.json`
+- **Planned Changes:**
+  - Update Adam's title to: "Founder & Host, The Strategic Veteran | Independent AI Consultant | Certified Transformational & Addiction Recovery Coach | Partner, Amakaya Retreat"
+  - Add 158+ episode count prominently
+  - Add "signal vs. noise" tagline
+  - Add "As Seen In" section (Bold Journey, CanvasRebel, Umbrella Local Heroes, Marquis Who's Who)
+  - Add testimonials section
+  - Update copyright to 2026
+  - Remove Stronghold, Alset, CAIO references
+
+### 2. About (`/about`) -- UPDATE PENDING
+- **Page ID:** `668933461b3a6c3f7fdfa5be`
+- **Current Title:** "The Strategic Veteran - Bridging Military and Civilian Worlds"
+- **New Title:** "About The Strategic Veteran | Adam Peters | Military Transition Movement"
+- **Content File:** `data/webflow-pages/about.html`
+- **SEO File:** `data/webflow-pages/seo/about.json`
+- **Planned Changes:**
+  - Full bio: Army infantry, 4 deployments Iraq/Afghanistan (2003-2015), medically retired
+  - Transformation story: 9 surgeries, weight loss, plant medicine
+  - Current roles and certifications
+  - Accolades & recognition section
+  - Remove Stronghold, Alset, CAIO references
 
 ### 3. Podcast (`/podcast`)
 - **Title:** "The Strategic Veteran Podcast | Insights for Successful Military Transition"
@@ -69,13 +104,17 @@ To fix: Go to Webflow Dashboard > Site Settings > Apps & Integrations > Edit the
   - Social proof: "Read by top executives at:" with logos (PGA of America, Diamond Sharp Capital, Walking Warrior, Veteran Roadmap, SHU)
   - Creator profile: Adam Peters
 
-### 5. Contact (`/contact`)
-- **Title:** "Contact The Strategic Veteran | Get Support for Your Civilian Transition"
-- **Meta Description:** None set
-- **Content:**
-  - Heading: "Looking for answers?"
-  - Contact form: Name, Email Address, Message
-- **Notes:** No phone number, no email address displayed, no booking link, no social media links in body.
+### 5. Contact (`/contact`) -- UPDATE PENDING
+- **Page ID:** `668957fd0f53689e469c5cfd`
+- **Current Title:** "Contact The Strategic Veteran | Get Support for Your Civilian Transition"
+- **New Title:** "Contact The Strategic Veteran | Adam Peters"
+- **Content File:** `data/webflow-pages/contact.html`
+- **SEO File:** `data/webflow-pages/seo/contact.json`
+- **Planned Changes:**
+  - Add email: support@thestrategicveteran.com
+  - Add TidyCal link: tidycal.com/thestrategicveteran
+  - Add social media links (LinkedIn, YouTube, X, Instagram, Facebook)
+  - Add quick links to /guest, /speaking, /press, /ai-consulting
 
 ### 6. Guest Landing Page (`/guest`)
 - **Title:** "Be A Strategic Veteran Podcast Guest"
@@ -97,6 +136,46 @@ To fix: Go to Webflow Dashboard > Site Settings > Apps & Integrations > Edit the
 - **Title:** Webflow native search page
 - **Meta Description:** None set
 - **Content:** Webflow's built-in site search functionality
+
+### 9. Speaking (`/speaking`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/speaking.html`
+- **SEO File:** `data/webflow-pages/seo/speaking.json`
+- **Content:** Past events (VETSOCIAL25, U of Chicago/Boeing Summit 2025), speaking topics, booking inquiry
+
+### 10. Coaching (`/coaching`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/coaching.html`
+- **SEO File:** `data/webflow-pages/seo/coaching.json`
+- **Content:** Veteran transition coaching + psychedelic integration coaching, Being True to You certification, TidyCal booking
+
+### 11. Press & Media (`/press`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/press.html`
+- **SEO File:** `data/webflow-pages/seo/press.json`
+- **Content:** Magazine features (Bold Journey, CanvasRebel x2, Umbrella Local Heroes), Marquis Who's Who 2025, podcast guest appearances
+
+### 12. Adam Peters (`/adam`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/adam.html`
+- **SEO File:** `data/webflow-pages/seo/adam.json`
+- **Content:** Full transformation story, military service, certifications, current work
+
+### 13. TSV Studios (`/tsv-studios`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/tsv-studios.html`
+- **SEO File:** `data/webflow-pages/seo/tsv-studios.json`
+- **Content:** Documentary arm, first project in production (Montana)
+
+### 14. AI Consulting (`/ai-consulting`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/ai-consulting.html`
+- **SEO File:** `data/webflow-pages/seo/ai-consulting.json`
+- **Content:** Independent AI consulting, "signal vs. noise" value prop, inquiry form
+
+### 15. Partners (`/partners`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/partners.html`
+- **SEO File:** `data/webflow-pages/seo/partners.json`
+- **Content:** Ramshorn Coffee (code: THESTRATEGICVET), future sponsors placeholder
+
+### 16. Episodes (`/episodes`) -- NEW PAGE (needs creation in Designer)
+- **Content File:** `data/webflow-pages/episodes.html`
+- **SEO File:** `data/webflow-pages/seo/episodes.json`
+- **Content:** Browsable episode archive (CMS collection list), "Start Here" featured episodes, platform links
 
 ---
 
@@ -198,36 +277,42 @@ Footer: Social links (YouTube, X, Instagram, Facebook, LinkedIn)
 
 ## Recommendations Context
 
-This site belongs to **Adam Peters / The Strategic Veteran** (TSV Studios LLC). A comprehensive website audit exists at `data/website-audit.md` (dated 2026-03-04) that identified significant gaps between Adam's actual presence and what the website communicates.
+This site belongs to **Adam Peters / The Strategic Veteran** (TSV Studios LLC). A comprehensive website audit exists at `data/website-audit.md` (dated 2026-03-04).
 
-### Missing Pages That Need to Be Built
+### Pages Addressed by Content Build (2026-03-07)
 
-Based on the audit findings, the following pages do not exist and should be created:
+Content files have been created for all of the following. See `data/webflow-pages/` directory.
+
+| Page | Slug | Status | Content File |
+|------|------|--------|-------------|
+| Speaking | `/speaking` | Content ready, needs page creation in Designer | `speaking.html` |
+| Coaching | `/coaching` | Content ready, needs page creation in Designer | `coaching.html` |
+| AI Consulting | `/ai-consulting` | Content ready, needs page creation in Designer | `ai-consulting.html` |
+| Press & Media | `/press` | Content ready, needs page creation in Designer | `press.html` |
+| Episode Archive | `/episodes` | Content ready, needs page creation in Designer | `episodes.html` |
+| Full Bio | `/adam` | Content ready, needs page creation in Designer | `adam.html` |
+| TSV Studios | `/tsv-studios` | Content ready, needs page creation in Designer | `tsv-studios.html` |
+| Partners | `/partners` | Content ready, needs page creation in Designer | `partners.html` |
+
+### Pages NOT Addressed (Future Work)
 
 | Page | Suggested Slug | Purpose |
 |------|---------------|---------|
-| Speaking | `/speaking` | Past events, topics, rate card, booking CTA. Adam speaks at VETSOCIAL25, U of Chicago/Boeing summit, Military CreatorCon, etc. |
-| Coaching | `/coaching` | One-on-one transition coaching offerings, testimonials, TidyCal booking integration |
-| AI Consulting | `/ai-consulting` | Fractional CAIO services, Alset Technologies connection, AI implementation offerings |
-| Community (The Stronghold) | `/community` | The Stronghold veteran community description and join flow (now free) |
-| Press & Media | `/press` | Magazine features (Bold Journey, CanvasRebel x2, Umbrella Local Heroes), podcast guest appearances, media kit |
-| Episode Archive | `/episodes` | Searchable, filterable directory of all 158+ episodes with embedded players |
-| Full Bio | `/about/adam` | Adam's complete transformation story: combat deployments, medical retirement, weight loss, plant medicine, founding TSV |
-| Amakaya | `/amakaya` | Partnership with Amakaya Ayahuasca Retreat in Peru, Adam's healing journey, resources for veterans |
-| Blog | `/blog` | Regular content for SEO, repurposed podcast insights, transition tips, AI articles |
-| Store | `/store` | Audiobook, Ramshorn Coffee partnership, merchandise, digital products |
+| Amakaya | `/amakaya` | Partnership with Amakaya Ayahuasca Retreat -- needs Adam's sign-off on messaging |
+| Blog | `/blog` | Regular content for SEO -- needs CMS collection setup |
+| Store | `/store` | Audiobook, merchandise, digital products |
 
-### Key Data Points for Building Missing Pages
+### Key Data Points
 
 - **Episodes published:** 158+ (per podcast platforms), 120 on website
 - **Press features:** Bold Journey (Jul 2024), CanvasRebel x2 (Jul 2024, Dec 2024), Umbrella Local Heroes (Jul 2024)
 - **Speaking events:** VETSOCIAL25, University of Chicago/Boeing Summit (Oct 2025), Military CreatorCon Dallas, Tampa events
-- **Ventures:** TSV (founder), Alset Technologies (CTO), Amakaya Retreat (partner)
-- **Titles:** Founder, CAIO, CTO, Veteran Transition Architect
-- **Social:** LinkedIn (~16K-23K followers), YouTube, X, Instagram, Facebook
+- **Ventures:** TSV (founder), Amakaya Retreat (partner), Independent AI Consultant
+- **Titles:** Founder & Host, Independent AI Consultant, Certified Coach, Partner
+- **Social:** LinkedIn (~16K followers), YouTube, X, Instagram, Facebook
 - **Booking:** TidyCal at tidycal.com/thestrategicveteran
 - **Email:** support@thestrategicveteran.com
-- **Sponsors:** Ramshorn Coffee (code: THESTRATEGICVET), Endure By Faith (partner)
+- **Sponsors:** Ramshorn Coffee (code: THESTRATEGICVET)
 - **Newsletter:** 339 subscribers, "Your Weekly Blueprint For Success"
 
 ---
@@ -236,11 +321,14 @@ Based on the audit findings, the following pages do not exist and should be crea
 
 ### Webflow API Access
 
-The Webflow skill scripts are at `skills/webflow/`. Before using CMS read/write scripts, the API token must be updated with the required scopes (see API Token Status section above).
+The Webflow skill scripts are at `skills/webflow/`. The API token must be updated with the required scopes before most operations work (see API Token Status section above).
 
 Available scripts:
 - `skills/webflow/site-info.sh` -- Get site details (requires `sites:read`)
 - `skills/webflow/list-pages.sh` -- List all pages (requires `pages:read`)
+- `skills/webflow/get-page-dom.sh <page-id>` -- Get page DOM content (requires `pages:read`)
+- `skills/webflow/update-page-dom.sh <page-id> <json-file>` -- Update page DOM content (requires `pages:write`)
+- `skills/webflow/update-page-settings.sh <page-id> <json-file>` -- Update page title/SEO (requires `pages:write`)
 - `skills/webflow/list-collections.sh` -- List CMS collections with field schemas (requires `cms:read`)
 - `skills/webflow/list-collection-items.sh <collection-id>` -- List items in a collection (requires `cms:read`)
 - `skills/webflow/get-collection-item.sh <collection-id> <item-id>` -- Get single item (requires `cms:read`)
@@ -248,27 +336,39 @@ Available scripts:
 - `skills/webflow/update-collection-item.sh <collection-id> <item-id> <json-file>` -- Update CMS item (requires `cms:write`)
 - `skills/webflow/publish-site.sh` -- Publish site (requires `sites:write`)
 
+### Known Page IDs
+
+Extracted from live site DOM attributes (see `data/webflow-pages/page-ids.json` for full reference):
+
+| Page | Page ID |
+|------|---------|
+| Homepage (`/`) | `66878d6a1082f3dca2c24aec` |
+| About (`/about`) | `668933461b3a6c3f7fdfa5be` |
+| Podcast (`/podcast`) | `66894fb8a153c1d444b31357` |
+| Newsletter (`/newsletter`) | `66894c1dfc02dab6c272eb7f` |
+| Contact (`/contact`) | `668957fd0f53689e469c5cfd` |
+
 ### Collection IDs
 
-Collection IDs are not yet known because the API token lacks `cms:read` scope. Once the token is updated, run `skills/webflow/list-collections.sh` to get collection IDs and field schemas. The podcast episodes collection ID will be needed for any CMS operations.
+Collection IDs are not yet known because the API token lacks `cms:read` scope. Once the token is updated, run `skills/webflow/list-collections.sh` to get collection IDs and field schemas.
 
-### Page IDs
+### Deployment Workflow
 
-Page IDs are not yet known because the API token lacks `pages:read` scope. Once the token is updated, run `skills/webflow/list-pages.sh` to get page IDs needed for page-level operations.
+1. Update Webflow API token scopes in Webflow Dashboard
+2. Create new static pages in Webflow Designer (8 pages)
+3. Extract new page IDs and update `data/webflow-pages/page-ids.json`
+4. Run `skills/webflow/get-page-dom.sh <page-id>` to learn DOM node structure
+5. Map content from HTML files to DOM node update payloads
+6. Run `skills/webflow/update-page-dom.sh <page-id> <payload.json>` for each page
+7. Run `skills/webflow/update-page-settings.sh <page-id> <seo.json>` for each page
+8. Run `skills/webflow/publish-site.sh` to push changes live
+9. Alternatively: Copy/paste content from HTML files directly in Webflow Designer
 
-### Making Changes
-
-1. Use `list-collections.sh` to get collection ID
-2. Use `list-collection-items.sh` to browse existing items
-3. Create JSON payload matching the collection's field schema
-4. Use `create-collection-item.sh` or `update-collection-item.sh`
-5. Use `publish-site.sh` to push changes live
-
-### Key Fixes Needed (Quick Wins)
+### Key Fixes Still Needed
 
 1. Fix portrait alt text typo: `portraitportriat` -> `portrait`
 2. Fix truncated episode slugs (11 episodes with slugs like `ba`, `c`, `d`)
-3. Add meta descriptions to all pages
-4. Update copyright to 2025/2026
-5. Fix Shop nav link (currently `#`)
-6. Populate episode descriptions for the ~80% that are empty
+3. Update copyright to 2026
+4. Fix Shop nav link (currently `#`)
+5. Populate episode descriptions for the ~80% that are empty
+6. Update navigation to include new pages

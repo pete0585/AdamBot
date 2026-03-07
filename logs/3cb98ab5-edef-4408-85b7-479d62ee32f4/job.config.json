@@ -1,0 +1,4 @@
+{
+  "title": "Read and log full contents of nca-toolkit-research.md file",
+  "job": "Read the file `data/nca-toolkit-research.md` and output its full contents to the job log so it can be reviewed. Just cat the file and print everything in it."
+}

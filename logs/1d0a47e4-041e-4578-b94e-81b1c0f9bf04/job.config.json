@@ -1,0 +1,4 @@
+{
+  "title": "Research NCA Toolkit and write integration report to file",
+  "job": "Research the NCA Toolkit at https://github.com/stephengpope/no-code-architects-toolkit. Clone the repo or read it via the GitHub API. Document: what tools it includes, what APIs or dependencies it requires, how it's deployed, what it can do for audio/video processing (transcription, captions, shorts creation, concatenation, etc.), and how it could be integrated into an automated podcast episode pipeline. Save a full research report to `data/nca-toolkit-research.md` with a recommendation on how to deploy and use it in this system. Make sure the file is actually written and committed before finishing."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "Audit and report LLM config state across env, GitHub vars, and config files",
+  "job": "This is a READ-ONLY audit job. Do not change anything. Just report what you find.\n\nCheck and report the following:\n\n1. Read the `.env` file and report the current values of `LLM_PROVIDER`, `LLM_MODEL`, and `OPENAI_BASE_URL` (if present).\n\n2. Check the GitHub Repository Variables by running: `gh variable list` — report the values of `LLM_PROVIDER` and `LLM_MODEL` if they exist.\n\n3. Read `config/JOB_PLANNING.md` in full and paste its entire contents into the report.\n\n4. Read `config/CRONS.json` and report any crons that have `llm_provider` or `llm_model` overrides set.\n\nSave the full report to `logs/pre-routing-state-check.md`. Do not modify any files other than creating this log."
+}

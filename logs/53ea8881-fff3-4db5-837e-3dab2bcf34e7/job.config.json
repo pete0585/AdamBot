@@ -1,0 +1,4 @@
+{
+  "title": "Update heartbeat LLM model to gemini-2.5-flash in CRONS.json",
+  "job": "Open `config/CRONS.json` and update the `heartbeat` entry: change `\"llm_model\"` from `\"gemini-2.0-flash\"` to `\"gemini-2.5-flash\"`. Keep all other fields exactly unchanged."
+}

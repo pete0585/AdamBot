@@ -1,0 +1,4 @@
+{
+  "title": "Test DeepSeek and Gemini API connectivity and log results",
+  "job": "This is a provider connectivity test. Run two quick tests and report results to `logs/provider-test.md`:\n\n**Test 1 — DeepSeek (custom provider)**\nMake a curl call to `https://api.deepseek.com/v1/chat/completions` using the `$CUSTOM_API_KEY` environment variable with model `deepseek-chat`. Send a simple message: \"Say hello in exactly 5 words.\" Report whether it succeeded and what it returned.\n\n**Test 2 — Google Gemini Flash**\nMake a curl call to the Google Gemini API using `$GOOGLE_API_KEY` with model `gemini-2.0-flash`. Send the same message: \"Say hello in exactly 5 words.\" Report whether it succeeded and what it returned.\n\nSave a clear pass/fail result for each test to `logs/provider-test.md`."
+}

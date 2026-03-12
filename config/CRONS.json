@@ -30,5 +30,14 @@
     "type": "command",
     "command": "ls -la logs/",
     "enabled": false
+  },
+  {
+    "name": "tsv-brief",
+    "schedule": "30 7 * * 0",
+    "type": "agent",
+    "job": "{{ config/tsv-brief-prompt.md }}",
+    "llm_provider": "custom",
+    "llm_model": "deepseek-chat",
+    "enabled": true
   }
 ]
